@@ -11,7 +11,6 @@
 		604F07972427C3EA0033DE61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F07962427C3EA0033DE61 /* SceneDelegate.swift */; };
 		604F07992427C3EA0033DE61 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F07982427C3EA0033DE61 /* FirstViewController.swift */; };
 		604F079B2427C3EA0033DE61 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F079A2427C3EA0033DE61 /* SecondViewController.swift */; };
-		604F079E2427C3EA0033DE61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604F079C2427C3EA0033DE61 /* Main.storyboard */; };
 		604F07A12427C3EA0033DE61 /* Schedular.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 604F079F2427C3EA0033DE61 /* Schedular.xcdatamodeld */; };
 		604F07A32427C3EC0033DE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604F07A22427C3EC0033DE61 /* Assets.xcassets */; };
 		604F07A62427C3EC0033DE61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604F07A42427C3EC0033DE61 /* LaunchScreen.storyboard */; };
@@ -37,12 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		604F07912427C3EA0033DE61 /* Schedular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedular.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		604F07912427C3EA0033DE61 /* Schedulair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedulair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		604F07942427C3EA0033DE61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		604F07962427C3EA0033DE61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		604F07982427C3EA0033DE61 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		604F079A2427C3EA0033DE61 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		604F079D2427C3EA0033DE61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		604F07A02427C3EA0033DE61 /* Schedular.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schedular.xcdatamodel; sourceTree = "<group>"; };
 		604F07A22427C3EC0033DE61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		604F07A52427C3EC0033DE61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +52,7 @@
 		604F07BB2427C3EC0033DE61 /* SchedularUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedularUITests.swift; sourceTree = "<group>"; };
 		604F07BD2427C3EC0033DE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		604F07CB2427C4900033DE61 /* FirstLaunch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FirstLaunch.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		60C755482427E22000DFA697 /* HomeScreen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeScreen.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +94,7 @@
 		604F07922427C3EA0033DE61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				604F07912427C3EA0033DE61 /* Schedular.app */,
+				604F07912427C3EA0033DE61 /* Schedulair.app */,
 				604F07AC2427C3EC0033DE61 /* SchedularTests.xctest */,
 				604F07B72427C3EC0033DE61 /* SchedularUITests.xctest */,
 			);
@@ -109,7 +108,6 @@
 				604F07962427C3EA0033DE61 /* SceneDelegate.swift */,
 				604F07982427C3EA0033DE61 /* FirstViewController.swift */,
 				604F079A2427C3EA0033DE61 /* SecondViewController.swift */,
-				604F079C2427C3EA0033DE61 /* Main.storyboard */,
 				604F07A22427C3EC0033DE61 /* Assets.xcassets */,
 				604F07A42427C3EC0033DE61 /* LaunchScreen.storyboard */,
 				604F07A72427C3EC0033DE61 /* Info.plist */,
@@ -148,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				604F07CB2427C4900033DE61 /* FirstLaunch.playground */,
+				60C755482427E22000DFA697 /* HomeScreen.playground */,
 			);
 			path = Prototypes;
 			sourceTree = "<group>";
@@ -169,7 +168,7 @@
 			);
 			name = Schedular;
 			productName = Schedular;
-			productReference = 604F07912427C3EA0033DE61 /* Schedular.app */;
+			productReference = 604F07912427C3EA0033DE61 /* Schedulair.app */;
 			productType = "com.apple.product-type.application";
 		};
 		604F07AB2427C3EC0033DE61 /* SchedularTests */ = {
@@ -258,7 +257,6 @@
 			files = (
 				604F07A62427C3EC0033DE61 /* LaunchScreen.storyboard in Resources */,
 				604F07A32427C3EC0033DE61 /* Assets.xcassets in Resources */,
-				604F079E2427C3EA0033DE61 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,14 +321,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		604F079C2427C3EA0033DE61 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				604F079D2427C3EA0033DE61 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		604F07A42427C3EC0033DE61 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -467,8 +457,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.Schedular;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.schedulair;
+				PRODUCT_NAME = Schedulair;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -485,8 +475,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.Schedular;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.schedulair;
+				PRODUCT_NAME = Schedulair;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -12,7 +12,8 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("second view controller")
+        self.view.backgroundColor = .cyan
     }
 
 
