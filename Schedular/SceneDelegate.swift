@@ -14,18 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let item0 = UITabBarItem()
-        item0.title = "Schedule"
-        let item1 = UITabBarItem()
-        item1.title = "Calendar"
-        let firstVC = FirstViewController()
-        firstVC.tabBarItem = item0
-        let secondVC = SecondViewController()
-        secondVC.tabBarItem = item1
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [firstVC, secondVC]
+        let tabBarController = TabBarController()
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        window?.tintColor = .AccentColor
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
