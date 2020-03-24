@@ -54,8 +54,7 @@ class ScheduleViewController: UIViewController {
         NSLayoutConstraint.activate([
             navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
             navigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            navigationBar.widthAnchor.constraint(equalToConstant: screenScreenSize.width),
-            navigationBar.heightAnchor.constraint(equalToConstant: 96)
+            navigationBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         todayLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
