@@ -15,12 +15,14 @@ enum ColorPallete: String {
     case backgroundColor = "BackgroundColor"
     case primaryTextColor = "PrimaryTextColor"
     case accentColor = "AccentColor"
+    case cardColor = "CardColor"
 }
 
 extension UIColor {
     static let BackgroundColor = getColorFromTheme(color: .backgroundColor)
     static let PrimaryTextColor = getColorFromTheme(color: .primaryTextColor)
     static let AccentColor = getColorFromTheme(color: .accentColor)
+    static let CardColor = getColorFromTheme(color: .cardColor)
 }
 
 private func getColorFromTheme(color: ColorPallete) -> UIColor {

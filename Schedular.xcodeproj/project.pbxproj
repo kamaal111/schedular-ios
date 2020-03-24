@@ -20,6 +20,9 @@
 		605859BE24294F2B00F2799D /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605859BD24294F2B00F2799D /* ColorPallete.swift */; };
 		605859C02429570E00F2799D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605859BF2429570E00F2799D /* SettingsViewController.swift */; };
 		6063F658242A7963001EE17A /* ScheduleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */; };
+		606AFEC7242A9FEB00828350 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AFEC6242A9FEB00828350 /* Localizer.swift */; };
+		606AFEC9242AA02D00828350 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 606AFEC8242AA02D00828350 /* Localizable.strings */; };
+		606AFECB242AA95800828350 /* RemindersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AFECA242AA95800828350 /* RemindersCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		605859BD24294F2B00F2799D /* ColorPallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		605859BF2429570E00F2799D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNavigationBar.swift; sourceTree = "<group>"; };
+		606AFEC6242A9FEB00828350 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		606AFEC8242AA02D00828350 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		606AFECA242AA95800828350 /* RemindersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCard.swift; sourceTree = "<group>"; };
 		60C755482427E22000DFA697 /* HomeScreen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeScreen.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
@@ -121,6 +127,7 @@
 				604F07A42427C3EC0033DE61 /* LaunchScreen.storyboard */,
 				604F07A72427C3EC0033DE61 /* Info.plist */,
 				604F079F2427C3EA0033DE61 /* Schedular.xcdatamodeld */,
+				606AFEC8242AA02D00828350 /* Localizable.strings */,
 			);
 			path = Schedular;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				605859BD24294F2B00F2799D /* ColorPallete.swift */,
+				606AFEC6242A9FEB00828350 /* Localizer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */,
+				606AFECA242AA95800828350 /* RemindersCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				604F07A62427C3EC0033DE61 /* LaunchScreen.storyboard in Resources */,
+				606AFEC9242AA02D00828350 /* Localizable.strings in Resources */,
 				604F07A32427C3EC0033DE61 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +350,8 @@
 				604F07952427C3EA0033DE61 /* AppDelegate.swift in Sources */,
 				6012EAD724292D4F00D93F77 /* TabBarController.swift in Sources */,
 				604F07A12427C3EA0033DE61 /* Schedular.xcdatamodeld in Sources */,
+				606AFEC7242A9FEB00828350 /* Localizer.swift in Sources */,
+				606AFECB242AA95800828350 /* RemindersCard.swift in Sources */,
 				604F07972427C3EA0033DE61 /* SceneDelegate.swift in Sources */,
 				605859C02429570E00F2799D /* SettingsViewController.swift in Sources */,
 			);

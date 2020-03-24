@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Schedular
+
+  Created by Kamaal Farah on 24/03/2020.
+  Copyright © 2020 Kamaal. All rights reserved.
+*/
+
+"SCHEDULE" = "Schedule";
+"TODAY" = "Today";
+"REMINDERS" = "Reminders";
