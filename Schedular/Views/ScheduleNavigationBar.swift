@@ -18,13 +18,6 @@ class ScheduleNavigationBar: UINavigationBar {
     convenience init(navigationBarTitle: LocalizableKeys) {
         self.init(frame: .zero)
         let navigationItem = UINavigationItem(title: Localizer.getLocalizableString(of: navigationBarTitle))
-        //        let leftButton = UIBarButtonItem(
-        //            image: UIImage(systemName: "plus"),
-        //            style: .plain,
-        //            target: self,
-        //            action: #selector(addTapped))
-        //        leftButton.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
-        //        navigationItem.leftBarButtonItem = leftButton
         items = [navigationItem]
     }
 

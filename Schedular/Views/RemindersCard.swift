@@ -42,6 +42,7 @@ class RemindersCard: UIView {
         layer.shadowOpacity = 0.6
         layer.shadowOffset = .zero
         layer.shadowRadius = 10
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(remindersTitle)
     }
 

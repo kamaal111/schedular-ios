@@ -16,6 +16,7 @@ class ScheduleViewController: UIViewController {
         label.text = Localizer.getLocalizableString(of: .TODAY)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = .PrimaryTextColor
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -58,18 +59,17 @@ class ScheduleViewController: UIViewController {
     private func setupConstraints() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            navigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
+            navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationBar.heightAnchor.constraint(equalToConstant: 96),
             navigationBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
-        currentTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             currentTimeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             currentTimeLabel.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 8),
             currentTimeLabel.widthAnchor.constraint(equalToConstant: 104),
             currentTimeLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
-        remindersCard.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             remindersCard.topAnchor.constraint(equalTo: currentTimeLabel.bottomAnchor, constant: 16),
             remindersCard.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
