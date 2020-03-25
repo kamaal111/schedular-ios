@@ -10,25 +10,31 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
 
-    private let screenScreenSize = UIScreen.main.bounds
-
     // MARK: - Components
-    lazy var todayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Today"
+    lazy var currentTimeLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = Localizer.getLocalizableString(of: .TODAY)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = .PrimaryTextColor
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     lazy var navigationBar: UINavigationBar = {
-        ScheduleNavigationBar(navigationBarTitle: "Schedule")
+        ScheduleNavigationBar(navigationBarTitle: .SCHEDULE)
+    }()
+
+    lazy var remindersCard: UIView = {
+       RemindersCard()
     }()
 
     // MARK: - Setting up view controller
     init(barTagNumber: Int) {
         super.init(nibName: nil, bundle: nil)
-        tabBarItem = UITabBarItem(title: "Schedule", image: UIImage(systemName: "archivebox"), tag: barTagNumber)
+        tabBarItem = UITabBarItem(
+            title: Localizer.getLocalizableString(of: .SCHEDULE),
+            image: UIImage(systemName: "archivebox"),
+            tag: barTagNumber)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,23 +51,29 @@ class ScheduleViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .BackgroundColor
         view.addSubview(navigationBar)
-        view.addSubview(todayLabel)
+        view.addSubview(currentTimeLabel)
+        view.addSubview(remindersCard)
     }
 
     // MARK: - Setting Constraints
     private func setupConstraints() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            navigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
+            navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationBar.heightAnchor.constraint(equalToConstant: 96),
             navigationBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
-        todayLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            todayLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            todayLabel.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 8),
-            todayLabel.widthAnchor.constraint(equalToConstant: 104),
-            todayLabel.heightAnchor.constraint(equalToConstant: 40)
+            currentTimeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            currentTimeLabel.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 8),
+            currentTimeLabel.widthAnchor.constraint(equalToConstant: 104),
+            currentTimeLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        NSLayoutConstraint.activate([
+            remindersCard.topAnchor.constraint(equalTo: currentTimeLabel.bottomAnchor, constant: 16),
+            remindersCard.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            remindersCard.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
 
