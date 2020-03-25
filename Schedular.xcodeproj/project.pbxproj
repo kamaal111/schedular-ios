@@ -23,6 +23,7 @@
 		606AFEC7242A9FEB00828350 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AFEC6242A9FEB00828350 /* Localizer.swift */; };
 		606AFEC9242AA02D00828350 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 606AFEC8242AA02D00828350 /* Localizable.strings */; };
 		606AFECB242AA95800828350 /* RemindersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AFECA242AA95800828350 /* RemindersCard.swift */; };
+		60C7A4C2242BFE72009E4CEB /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A4C1242BFE72009E4CEB /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		606AFEC8242AA02D00828350 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		606AFECA242AA95800828350 /* RemindersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCard.swift; sourceTree = "<group>"; };
 		60C755482427E22000DFA697 /* HomeScreen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeScreen.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		60C7A4C1242BFE72009E4CEB /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			children = (
 				6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */,
 				606AFECA242AA95800828350 /* RemindersCard.swift */,
+				60C7A4C1242BFE72009E4CEB /* CircleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C7A4C2242BFE72009E4CEB /* CircleView.swift in Sources */,
 				605859BE24294F2B00F2799D /* ColorPallete.swift in Sources */,
 				604F079B2427C3EA0033DE61 /* CalendarViewController.swift in Sources */,
 				6063F658242A7963001EE17A /* ScheduleNavigationBar.swift in Sources */,
