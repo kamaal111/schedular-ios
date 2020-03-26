@@ -8,62 +8,7 @@
 
 import UIKit
 
-class RemindersCard: UIView {
-
-    // MARK: - Components
-    lazy var remindersTitle: UILabel = {
-       let label = UILabel()
-        label.text = Localizer.getLocalizableString(of: .REMINDERS)
-        label.textColor = .PrimaryTextColor
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    lazy var circleView: UIView = {
-        let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
-        circle.translatesAutoresizingMaskIntoConstraints = false
-        return circle
-    }()
-
-    lazy var circleView2: UIView = {
-        let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
-        circle.translatesAutoresizingMaskIntoConstraints = false
-        return circle
-    }()
-
-    lazy var circleView3: UIView = {
-        let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
-        circle.translatesAutoresizingMaskIntoConstraints = false
-        return circle
-    }()
-
-    lazy var remindersLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Walk the dog"
-        label.textColor = .PrimaryTextColor
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    lazy var remindersLabel2: UILabel = {
-        let label = UILabel()
-        label.text = "Do groceries"
-        label.textColor = .PrimaryTextColor
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    lazy var remindersLabel3: UILabel = {
-        let label = UILabel()
-        label.text = "Go to the gym"
-        label.textColor = .PrimaryTextColor
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+final public class RemindersCard: UIView {
 
     // MARK: - Initializing view
     private override init(frame: CGRect) {
@@ -72,13 +17,35 @@ class RemindersCard: UIView {
         setupConstraints()
     }
 
-    convenience init() {
+    public convenience init() {
         self.init(frame: .zero)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+
+    // MARK: - Components
+    private lazy var remindersTitle: UILabel = {
+       let label = UILabel()
+        label.text = Localizer.getLocalizableString(of: .REMINDERS)
+        label.textColor = .PrimaryTextColor
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private lazy var firstRemindersRow: UIView = {
+        RemindersRow(remindersText: "Walk the dog")
+    }()
+
+    private lazy var secondRemindersRow: UIView = {
+        RemindersRow(remindersText: "Do groceries")
+    }()
+
+    private lazy var thirdRemindersRow: UIView = {
+        RemindersRow(remindersText: "Go to the gym")
+    }()
 
     // MARK: - Setting Views
     private func setupViews() {
@@ -90,12 +57,9 @@ class RemindersCard: UIView {
         layer.shadowRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(remindersTitle)
-        addSubview(circleView)
-        addSubview(remindersLabel)
-        addSubview(circleView2)
-        addSubview(remindersLabel2)
-        addSubview(circleView3)
-        addSubview(remindersLabel3)
+        addSubview(firstRemindersRow)
+        addSubview(secondRemindersRow)
+        addSubview(thirdRemindersRow)
     }
 
     // MARK: - Setting Constraints
@@ -108,37 +72,19 @@ class RemindersCard: UIView {
             remindersTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
         ])
         NSLayoutConstraint.activate([
-            circleView.topAnchor.constraint(equalTo: remindersTitle.bottomAnchor, constant: 8),
-            circleView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            circleView.heightAnchor.constraint(equalToConstant: 40),
-            circleView.widthAnchor.constraint(equalToConstant: 40)
+            firstRemindersRow.topAnchor.constraint(equalTo: remindersTitle.bottomAnchor),
+            firstRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
+            firstRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         NSLayoutConstraint.activate([
-            remindersLabel.leftAnchor.constraint(equalTo: circleView.rightAnchor, constant: 16),
-            remindersLabel.topAnchor.constraint(equalTo: remindersTitle.bottomAnchor, constant: 8),
-            remindersLabel.heightAnchor.constraint(equalToConstant: 40)
+            secondRemindersRow.topAnchor.constraint(equalTo: firstRemindersRow.bottomAnchor, constant: 8),
+            secondRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
+            secondRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         NSLayoutConstraint.activate([
-            circleView2.topAnchor.constraint(equalTo: circleView.bottomAnchor, constant: 8),
-            circleView2.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            circleView2.heightAnchor.constraint(equalToConstant: 40),
-            circleView2.widthAnchor.constraint(equalToConstant: 40)
-        ])
-        NSLayoutConstraint.activate([
-            remindersLabel2.leftAnchor.constraint(equalTo: circleView2.rightAnchor, constant: 16),
-            remindersLabel2.topAnchor.constraint(equalTo: remindersLabel.bottomAnchor, constant: 8),
-            remindersLabel2.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        NSLayoutConstraint.activate([
-            circleView3.topAnchor.constraint(equalTo: circleView2.bottomAnchor, constant: 8),
-            circleView3.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            circleView3.heightAnchor.constraint(equalToConstant: 40),
-            circleView3.widthAnchor.constraint(equalToConstant: 40)
-        ])
-        NSLayoutConstraint.activate([
-            remindersLabel3.leftAnchor.constraint(equalTo: circleView3.rightAnchor, constant: 16),
-            remindersLabel3.topAnchor.constraint(equalTo: remindersLabel2.bottomAnchor, constant: 8),
-            remindersLabel3.heightAnchor.constraint(equalToConstant: 40)
+            thirdRemindersRow.topAnchor.constraint(equalTo: secondRemindersRow.bottomAnchor, constant: 8),
+            thirdRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
+            thirdRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
         ])
     }
 

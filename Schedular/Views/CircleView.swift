@@ -8,18 +8,18 @@
 
 import UIKit
 
-class CircleView: UIView {
+final public class CircleView: UIView {
 
-    var lineWidth: CGFloat = 4
-    var lineColor: UIColor = .AccentColor
-    var spacingAwayFromView: Double = 4
+    public var lineWidth: CGFloat = 4
+    public var lineColor: UIColor = .AccentColor
+    public var spacingAwayFromView: Double = 4
 
     private override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .CardColor
     }
 
-    convenience init(lineWidth: CGFloat, lineColor: UIColor, spacingAwayFromView: Double) {
+    public convenience init(lineWidth: CGFloat, lineColor: UIColor, spacingAwayFromView: Double) {
         self.init(frame: .zero)
         self.lineWidth = lineWidth
         self.lineColor = lineColor
@@ -30,7 +30,7 @@ class CircleView: UIView {
         super.init(coder: coder)
     }
 
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
 
         let radius: Double = Double(rect.width) / 2 - spacingAwayFromView

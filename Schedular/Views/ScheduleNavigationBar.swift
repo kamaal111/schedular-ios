@@ -8,26 +8,21 @@
 
 import UIKit
 
-class ScheduleNavigationBar: UINavigationBar {
+final public class ScheduleNavigationBar: UINavigationBar {
 
     private override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
 
-    convenience init(frame: CGRect, navigationBarTitle: LocalizableKeys) {
-        self.init(frame: frame)
+    convenience init(navigationBarTitle: LocalizableKeys) {
+        self.init(frame: .zero)
         let navigationItem = UINavigationItem(title: Localizer.getLocalizableString(of: navigationBarTitle))
         items = [navigationItem]
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-
-    @objc
-    func addTapped() {
-        print("add")
     }
 
     // MARK: - Setting Views

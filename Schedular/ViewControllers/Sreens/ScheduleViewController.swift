@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController {
+final class ScheduleViewController: UIViewController {
 
     // MARK: - Components
-    lazy var currentTimeLabel: UILabel = {
+    private lazy var currentTimeLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = Localizer.getLocalizableString(of: .TODAY)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
@@ -20,16 +20,16 @@ class ScheduleViewController: UIViewController {
         return label
     }()
 
-    lazy var navigationBar: UINavigationBar = {
-        ScheduleNavigationBar(frame: .zero, navigationBarTitle: .SCHEDULE)
+    private lazy var navigationBar: UINavigationBar = {
+        ScheduleNavigationBar(navigationBarTitle: .SCHEDULE)
     }()
 
-    lazy var remindersCard: UIView = {
+    private lazy var remindersCard: UIView = {
        RemindersCard()
     }()
 
     // MARK: - Setting up view controller
-    init(barTagNumber: Int) {
+    public init(barTagNumber: Int) {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(
             title: Localizer.getLocalizableString(of: .SCHEDULE),
