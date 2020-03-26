@@ -15,8 +15,8 @@ class ScheduleNavigationBar: UINavigationBar {
         setupViews()
     }
 
-    convenience init(navigationBarTitle: LocalizableKeys) {
-        self.init(frame: .zero)
+    convenience init(frame: CGRect, navigationBarTitle: LocalizableKeys) {
+        self.init(frame: frame)
         let navigationItem = UINavigationItem(title: Localizer.getLocalizableString(of: navigationBarTitle))
         items = [navigationItem]
     }
@@ -33,7 +33,7 @@ class ScheduleNavigationBar: UINavigationBar {
     // MARK: - Setting Views
     private func setupViews() {
         prefersLargeTitles = true
-        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.PrimaryTextColor]
+        titleTextAttributes = [.foregroundColor: UIColor.PrimaryTextColor]
     }
 
 }

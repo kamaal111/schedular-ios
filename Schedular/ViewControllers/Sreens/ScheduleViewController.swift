@@ -21,7 +21,7 @@ class ScheduleViewController: UIViewController {
     }()
 
     lazy var navigationBar: UINavigationBar = {
-        ScheduleNavigationBar(navigationBarTitle: .SCHEDULE)
+        ScheduleNavigationBar(frame: .zero, navigationBarTitle: .SCHEDULE)
     }()
 
     lazy var remindersCard: UIView = {
@@ -61,8 +61,7 @@ class ScheduleViewController: UIViewController {
         NSLayoutConstraint.activate([
             navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
             navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
-            navigationBar.heightAnchor.constraint(equalToConstant: 96),
-            navigationBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
         NSLayoutConstraint.activate([
             currentTimeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
