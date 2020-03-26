@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController {
+final class ScheduleViewController: UIViewController {
 
     // MARK: - Components
-    lazy var currentTimeLabel: UILabel = {
+    private lazy var currentTimeLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = Localizer.getLocalizableString(of: .TODAY)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
@@ -20,16 +20,16 @@ class ScheduleViewController: UIViewController {
         return label
     }()
 
-    lazy var navigationBar: UINavigationBar = {
+    private lazy var navigationBar: UINavigationBar = {
         ScheduleNavigationBar(navigationBarTitle: .SCHEDULE)
     }()
 
-    lazy var remindersCard: UIView = {
+    private lazy var remindersCard: UIView = {
        RemindersCard()
     }()
 
     // MARK: - Setting up view controller
-    init(barTagNumber: Int) {
+    public init(barTagNumber: Int) {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(
             title: Localizer.getLocalizableString(of: .SCHEDULE),
@@ -61,8 +61,7 @@ class ScheduleViewController: UIViewController {
         NSLayoutConstraint.activate([
             navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
             navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
-            navigationBar.heightAnchor.constraint(equalToConstant: 96),
-            navigationBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
         NSLayoutConstraint.activate([
             currentTimeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),

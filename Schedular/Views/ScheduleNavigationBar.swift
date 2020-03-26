@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScheduleNavigationBar: UINavigationBar {
+final public class ScheduleNavigationBar: UINavigationBar {
 
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,15 +25,10 @@ class ScheduleNavigationBar: UINavigationBar {
         super.init(coder: coder)
     }
 
-    @objc
-    func addTapped() {
-        print("add")
-    }
-
     // MARK: - Setting Views
     private func setupViews() {
         prefersLargeTitles = true
-        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.PrimaryTextColor]
+        titleTextAttributes = [.foregroundColor: UIColor.PrimaryTextColor]
     }
 
 }
