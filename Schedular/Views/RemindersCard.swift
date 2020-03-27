@@ -25,6 +25,12 @@ final public class RemindersCard: UIView {
         super.init(coder: coder)
     }
 
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            layer.shadowColor = UIColor.PrimaryTextColor.cgColor
+        }
+    }
+
     // MARK: - Components
     private lazy var remindersTitle: UILabel = {
        let label = UILabel()
@@ -51,7 +57,7 @@ final public class RemindersCard: UIView {
     private func setupViews() {
         backgroundColor = .CardColor
         layer.cornerRadius = 16
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor.PrimaryTextColor.cgColor
         layer.shadowOpacity = 0.6
         layer.shadowOffset = .zero
         layer.shadowRadius = 10

@@ -12,6 +12,7 @@ final public class RemindersRow: UIView {
 
     // MARK: - Initializing view
     public var remindersText: String?
+    public var hasFinishedTask = false
 
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,11 +30,31 @@ final public class RemindersRow: UIView {
     }
 
     // MARK: - Components
-    private lazy var circleView: UIView = {
+    private lazy var circleView: CircleView = {
         let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
+        circle.addTarget(self, action: #selector(keyPressed(_: )), for: .touchUpInside)
         circle.translatesAutoresizingMaskIntoConstraints = false
         return circle
     }()
+
+    @IBAction func keyPressed(_ sender: UIButton) {
+        sender.alpha = 0.2
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            if self.hasFinishedTask {
+                self.circleView.fill = false
+                self.circleView.setNeedsDisplay()
+                self.remindersLabel.textColor = .PrimaryTextColor
+                self.hasFinishedTask = false
+            } else {
+                self.circleView.fill = true
+                self.circleView.setNeedsDisplay()
+                /// - ToDo: Create color in asset catalog
+                self.remindersLabel.textColor = .gray
+                self.hasFinishedTask = true
+            }
+            sender.alpha = 1.0
+        }
+    }
 
     private lazy var remindersLabel: UILabel = {
         let label = RemindersLabel(text: remindersText ?? "")

@@ -47,8 +47,9 @@ final class ScheduleViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .BackgroundColor
         title = Localizer.getLocalizableString(of: .SCHEDULE)
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.PrimaryTextColor]
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.PrimaryTextColor]
+        let navigationBarTitleColor: [NSAttributedString.Key: UIColor] = [.foregroundColor: .PrimaryTextColor]
+        navigationController?.navigationBar.titleTextAttributes = navigationBarTitleColor
+        navigationController?.navigationBar.largeTitleTextAttributes = navigationBarTitleColor
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(currentTimeLabel)
         view.addSubview(remindersCard)
