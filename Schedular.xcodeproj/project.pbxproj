@@ -21,7 +21,6 @@
 		604F07BC2427C3EC0033DE61 /* SchedularUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F07BB2427C3EC0033DE61 /* SchedularUITests.swift */; };
 		605859BE24294F2B00F2799D /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605859BD24294F2B00F2799D /* ColorPallete.swift */; };
 		605859C02429570E00F2799D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605859BF2429570E00F2799D /* SettingsViewController.swift */; };
-		6063F658242A7963001EE17A /* ScheduleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */; };
 		606AFEC7242A9FEB00828350 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AFEC6242A9FEB00828350 /* Localizer.swift */; };
 		606AFEC9242AA02D00828350 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 606AFEC8242AA02D00828350 /* Localizable.strings */; };
 		606AFECB242AA95800828350 /* RemindersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AFECA242AA95800828350 /* RemindersCard.swift */; };
@@ -67,7 +66,6 @@
 		604F07CB2427C4900033DE61 /* FirstLaunch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FirstLaunch.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		605859BD24294F2B00F2799D /* ColorPallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		605859BF2429570E00F2799D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNavigationBar.swift; sourceTree = "<group>"; };
 		606AFEC6242A9FEB00828350 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		606AFEC8242AA02D00828350 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		606AFECA242AA95800828350 /* RemindersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCard.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 		6063F656242A776D001EE17A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6063F657242A7963001EE17A /* ScheduleNavigationBar.swift */,
 				606AFECA242AA95800828350 /* RemindersCard.swift */,
 				60C7A4C1242BFE72009E4CEB /* CircleView.swift */,
 				6024A749242D409500BF768E /* RemindersLabel.swift */,
@@ -355,7 +352,6 @@
 				60C7A4C2242BFE72009E4CEB /* CircleView.swift in Sources */,
 				605859BE24294F2B00F2799D /* ColorPallete.swift in Sources */,
 				604F079B2427C3EA0033DE61 /* CalendarViewController.swift in Sources */,
-				6063F658242A7963001EE17A /* ScheduleNavigationBar.swift in Sources */,
 				604F07992427C3EA0033DE61 /* ScheduleViewController.swift in Sources */,
 				604F07952427C3EA0033DE61 /* AppDelegate.swift in Sources */,
 				6012EAD724292D4F00D93F77 /* TabBarController.swift in Sources */,

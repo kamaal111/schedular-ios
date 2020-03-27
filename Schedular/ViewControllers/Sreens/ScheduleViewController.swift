@@ -20,10 +20,6 @@ final class ScheduleViewController: UIViewController {
         return label
     }()
 
-    private lazy var navigationBar: UINavigationBar = {
-        ScheduleNavigationBar(navigationBarTitle: .SCHEDULE)
-    }()
-
     private lazy var remindersCard: UIView = {
        RemindersCard()
     }()
@@ -50,22 +46,20 @@ final class ScheduleViewController: UIViewController {
     // MARK: - Setting Views
     private func setupViews() {
         view.backgroundColor = .BackgroundColor
-        view.addSubview(navigationBar)
+        title = Localizer.getLocalizableString(of: .SCHEDULE)
+        let navigationBarTitleColor: [NSAttributedString.Key: UIColor] = [.foregroundColor: .PrimaryTextColor]
+        navigationController?.navigationBar.titleTextAttributes = navigationBarTitleColor
+        navigationController?.navigationBar.largeTitleTextAttributes = navigationBarTitleColor
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(currentTimeLabel)
         view.addSubview(remindersCard)
     }
 
     // MARK: - Setting Constraints
     private func setupConstraints() {
-        navigationBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
-            navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
-            navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor)
-        ])
         NSLayoutConstraint.activate([
             currentTimeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            currentTimeLabel.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 8),
+            currentTimeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             currentTimeLabel.widthAnchor.constraint(equalToConstant: 104),
             currentTimeLabel.heightAnchor.constraint(equalToConstant: 40)
         ])

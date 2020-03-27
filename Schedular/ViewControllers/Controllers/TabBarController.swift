@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         let settingsVC = SettingsViewController(barTagNumber: 2)
 
         viewControllers = [
-            scheduleVC,
+            UINavigationController(rootViewController: scheduleVC),
             calendarVC,
             settingsVC
         ]
