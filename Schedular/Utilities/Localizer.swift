@@ -8,16 +8,14 @@
 
 import Foundation
 
-struct Localizer {
-
-    static func getLocalizableString(of key: LocalizableKeys) -> String {
+public struct Localizer {
+    public static func getLocalizableString(of key: LocalizableKeys) -> String {
         NSLocalizedString(key.rawValue, comment: "")
     }
-
 }
 
 
-enum LocalizableKeys: String {
+public enum LocalizableKeys: String {
     case SCHEDULE
     case TODAY
     case REMINDERS
