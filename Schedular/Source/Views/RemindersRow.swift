@@ -32,12 +32,12 @@ final public class RemindersRow: UIView {
     // MARK: - Components
     private lazy var circleView: CircleView = {
         let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
-        circle.addTarget(self, action: #selector(keyPressed(_: )), for: .touchUpInside)
+        circle.addTarget(self, action: #selector(onPress(_: )), for: .touchUpInside)
         circle.translatesAutoresizingMaskIntoConstraints = false
         return circle
     }()
 
-    @IBAction func keyPressed(_ sender: UIButton) {
+    @IBAction func onPress(_ sender: UIButton) {
         sender.alpha = 0.2
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             if self.hasFinishedTask {
