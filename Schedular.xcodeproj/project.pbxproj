@@ -48,7 +48,7 @@
 		6012EAD624292D4F00D93F77 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6024A749242D409500BF768E /* RemindersLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersLabel.swift; sourceTree = "<group>"; };
 		6024A74B242D4AFB00BF768E /* RemindersRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRow.swift; sourceTree = "<group>"; };
-		604F07912427C3EA0033DE61 /* Schedulair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedulair.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		604F07912427C3EA0033DE61 /* CheckNext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckNext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		604F07942427C3EA0033DE61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		604F07962427C3EA0033DE61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		604F07982427C3EA0033DE61 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +69,7 @@
 		606AFEC6242A9FEB00828350 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		606AFEC8242AA02D00828350 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		606AFECA242AA95800828350 /* RemindersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCard.swift; sourceTree = "<group>"; };
+		608C8F37242E93C200A7267D /* CheckNext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckNext.entitlements; sourceTree = "<group>"; };
 		60C755482427E22000DFA697 /* HomeScreen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeScreen.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60C7A4C1242BFE72009E4CEB /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,7 +113,7 @@
 		604F07922427C3EA0033DE61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				604F07912427C3EA0033DE61 /* Schedulair.app */,
+				604F07912427C3EA0033DE61 /* CheckNext.app */,
 				604F07AC2427C3EC0033DE61 /* SchedularTests.xctest */,
 				604F07B72427C3EC0033DE61 /* SchedularUITests.xctest */,
 			);
@@ -122,6 +123,7 @@
 		604F07932427C3EA0033DE61 /* Schedular */ = {
 			isa = PBXGroup;
 			children = (
+				608C8F37242E93C200A7267D /* CheckNext.entitlements */,
 				6063F656242A776D001EE17A /* Views */,
 				605859C1242A76ED00F2799D /* ViewControllers */,
 				605859BC24294F1700F2799D /* Utilities */,
@@ -235,7 +237,7 @@
 			);
 			name = Schedular;
 			productName = Schedular;
-			productReference = 604F07912427C3EA0033DE61 /* Schedulair.app */;
+			productReference = 604F07912427C3EA0033DE61 /* CheckNext.app */;
 			productType = "com.apple.product-type.application";
 		};
 		604F07AB2427C3EC0033DE61 /* SchedularTests */ = {
@@ -526,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Schedular/CheckNext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				INFOPLIST_FILE = Schedular/Info.plist;
@@ -533,8 +536,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.schedulair;
-				PRODUCT_NAME = Schedulair;
+				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.checknext;
+				PRODUCT_NAME = CheckNext;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -544,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Schedular/CheckNext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				INFOPLIST_FILE = Schedular/Info.plist;
@@ -551,8 +555,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.schedulair;
-				PRODUCT_NAME = Schedulair;
+				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.checknext;
+				PRODUCT_NAME = CheckNext;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
