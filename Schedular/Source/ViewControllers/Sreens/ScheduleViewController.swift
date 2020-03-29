@@ -10,20 +10,6 @@ import UIKit
 
 final class ScheduleViewController: UIViewController {
 
-    // MARK: - Components
-    private lazy var currentTimeLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.text = Localizer.getLocalizableString(of: .TODAY)
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.textColor = .PrimaryTextColor
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private lazy var remindersCard: UIView = {
-       RemindersCard()
-    }()
-
     // MARK: - Setting up view controller
     public init(barTagNumber: Int) {
         super.init(nibName: nil, bundle: nil)
@@ -42,6 +28,18 @@ final class ScheduleViewController: UIViewController {
         setupViews()
         setupConstraints()
     }
+
+    // MARK: - Components
+    private lazy var currentTimeLabel: UILabel = {
+        let label = Title1()
+        label.text = Localizer.getLocalizableString(of: .TODAY)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private lazy var remindersCard: UIView = {
+       RemindersCard()
+    }()
 
     // MARK: - Setting Views
     private func setupViews() {

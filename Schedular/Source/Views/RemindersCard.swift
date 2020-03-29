@@ -33,10 +33,8 @@ final public class RemindersCard: UIView {
 
     // MARK: - Components
     private lazy var remindersTitle: UILabel = {
-       let label = UILabel()
+       let label = Title2()
         label.text = Localizer.getLocalizableString(of: .REMINDERS)
-        label.textColor = .PrimaryTextColor
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

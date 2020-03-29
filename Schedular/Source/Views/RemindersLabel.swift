@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class RemindersLabel: UILabel {
+final public class RemindersLabel: BodyText {
 
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,8 +21,6 @@ final public class RemindersLabel: UILabel {
     public convenience init(text: String) {
         self.init(frame: .zero)
         self.text = text
-        textColor = .PrimaryTextColor
-        font = UIFont.systemFont(ofSize: 16, weight: .regular)
     }
 
 }
