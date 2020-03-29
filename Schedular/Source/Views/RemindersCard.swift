@@ -26,7 +26,7 @@ final public class RemindersCard: UIView {
     }
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             layer.shadowColor = UIColor.PrimaryTextColor.cgColor
         }
     }
@@ -39,18 +39,6 @@ final public class RemindersCard: UIView {
         return label
     }()
 
-    private lazy var firstRemindersRow: UIView = {
-        RemindersRow(remindersText: "Walk the dog")
-    }()
-
-    private lazy var secondRemindersRow: UIView = {
-        RemindersRow(remindersText: "Do groceries")
-    }()
-
-    private lazy var thirdRemindersRow: UIView = {
-        RemindersRow(remindersText: "Go to the gym")
-    }()
-
     // MARK: - Setting Views
     private func setupViews() {
         backgroundColor = .CardColor
@@ -61,35 +49,56 @@ final public class RemindersCard: UIView {
         layer.shadowRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(remindersTitle)
-        addSubview(firstRemindersRow)
-        addSubview(secondRemindersRow)
-        addSubview(thirdRemindersRow)
+        setupRemindersViewContent()
     }
 
     // MARK: - Setting Constraints
     private func setupConstraints() {
+        let reminders = EventsHelper.reminders
+        let remindersCardHeight = 48 + (CGFloat(reminders.count < 1 ? 1 : reminders.count) * 52)
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 200)
+            heightAnchor.constraint(equalToConstant: remindersCardHeight)
         ])
         NSLayoutConstraint.activate([
             remindersTitle.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             remindersTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
         ])
-        NSLayoutConstraint.activate([
-            firstRemindersRow.topAnchor.constraint(equalTo: remindersTitle.bottomAnchor),
-            firstRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
-            firstRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            secondRemindersRow.topAnchor.constraint(equalTo: firstRemindersRow.bottomAnchor, constant: 8),
-            secondRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
-            secondRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            thirdRemindersRow.topAnchor.constraint(equalTo: secondRemindersRow.bottomAnchor, constant: 8),
-            thirdRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
-            thirdRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
-        ])
+    }
+
+    private func setupRemindersViewContent() {
+        let reminders = EventsHelper.reminders
+        if !reminders.isEmpty {
+            let firstRemindersRow = RemindersRow(remindersText: reminders[0])
+            addSubview(firstRemindersRow)
+            NSLayoutConstraint.activate([
+                firstRemindersRow.topAnchor.constraint(equalTo: remindersTitle.bottomAnchor),
+                firstRemindersRow.leftAnchor.constraint(equalTo: leftAnchor),
+                firstRemindersRow.rightAnchor.constraint(equalTo: rightAnchor)
+            ])
+            if reminders.count > 1 {
+                for (index, reminder) in reminders[1..<reminders.count].enumerated() {
+                    let reminderRow = RemindersRow(remindersText: reminder)
+                    addSubview(reminderRow)
+                    let remindersRowTopAnchorConstraint = 8 + (CGFloat(index) * 48)
+                    NSLayoutConstraint.activate([
+                        reminderRow.topAnchor.constraint(
+                            equalTo: firstRemindersRow.bottomAnchor,
+                            constant: remindersRowTopAnchorConstraint),
+                        reminderRow.leftAnchor.constraint(equalTo: leftAnchor),
+                        reminderRow.rightAnchor.constraint(equalTo: rightAnchor)
+                    ])
+                }
+            }
+        } else {
+            let noReminders = BodyText()
+            noReminders.text = "No Reminders 👍"
+            noReminders.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(noReminders)
+            NSLayoutConstraint.activate([
+                noReminders.topAnchor.constraint(equalTo: remindersTitle.bottomAnchor, constant: 16),
+                noReminders.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
+            ])
+        }
     }
 
 }

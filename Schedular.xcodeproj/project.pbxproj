@@ -51,6 +51,7 @@
 		607DBF97242FEE6D00114DB7 /* SF-Pro-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 607DBF85242FEE6D00114DB7 /* SF-Pro-Text-MediumItalic.otf */; };
 		607DBF9B242FF0F400114DB7 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607DBF9A242FF0F400114DB7 /* CustomFonts.swift */; };
 		607DBF9D242FF37900114DB7 /* GuideStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607DBF9C242FF37900114DB7 /* GuideStyles.swift */; };
+		60A0A9562431156200DCE4D7 /* EventsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A0A9552431156200DCE4D7 /* EventsHelper.swift */; };
 		60C7A4C2242BFE72009E4CEB /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A4C1242BFE72009E4CEB /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		607DBF9A242FF0F400114DB7 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		607DBF9C242FF37900114DB7 /* GuideStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideStyles.swift; sourceTree = "<group>"; };
 		608C8F37242E93C200A7267D /* CheckNext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckNext.entitlements; sourceTree = "<group>"; };
+		60A0A9552431156200DCE4D7 /* EventsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsHelper.swift; sourceTree = "<group>"; };
 		60C755482427E22000DFA697 /* HomeScreen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeScreen.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60C7A4C1242BFE72009E4CEB /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +235,7 @@
 				606AFEC6242A9FEB00828350 /* Localizer.swift */,
 				607DBF9A242FF0F400114DB7 /* CustomFonts.swift */,
 				607DBF9C242FF37900114DB7 /* GuideStyles.swift */,
+				60A0A9552431156200DCE4D7 /* EventsHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 			files = (
 				60C7A4C2242BFE72009E4CEB /* CircleView.swift in Sources */,
 				605859BE24294F2B00F2799D /* ColorPallete.swift in Sources */,
+				60A0A9562431156200DCE4D7 /* EventsHelper.swift in Sources */,
 				604F079B2427C3EA0033DE61 /* CalendarViewController.swift in Sources */,
 				604F07992427C3EA0033DE61 /* ScheduleViewController.swift in Sources */,
 				604F07952427C3EA0033DE61 /* AppDelegate.swift in Sources */,
