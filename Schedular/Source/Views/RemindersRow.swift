@@ -31,7 +31,10 @@ final public class RemindersRow: UIView {
 
     // MARK: - Components
     private lazy var circleView: CircleView = {
-        let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
+        /// - ToDo: Define this globally
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        let windowTintColor = sceneDelegate?.window?.tintColor
+        let circle = CircleView(lineWidth: 4, lineColor: windowTintColor ?? .systemPink, spacingAwayFromView: 4)
         circle.addTarget(self, action: #selector(onPress(_: )), for: .touchUpInside)
         circle.translatesAutoresizingMaskIntoConstraints = false
         return circle
@@ -48,8 +51,7 @@ final public class RemindersRow: UIView {
             } else {
                 self.circleView.fill = true
                 self.circleView.setNeedsDisplay()
-                /// - ToDo: Create color in asset catalog
-                self.remindersLabel.textColor = .gray
+                self.remindersLabel.textColor = .TertiaryTextColor
                 self.hasFinishedTask = true
             }
             sender.alpha = 1.0
