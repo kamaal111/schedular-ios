@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class ScheduleViewController: UIViewController {
+final class ScheduleViewController: UITableViewController {
+
+    private let remindersCellId = "Reminders"
 
     // MARK: - Setting up view controller
     public init(barTagNumber: Int) {
@@ -30,43 +32,31 @@ final class ScheduleViewController: UIViewController {
     }
 
     // MARK: - Components
-    private lazy var currentTimeLabel: UILabel = {
-        let label = Title1()
-        label.text = Localizer.getLocalizableString(of: .TODAY)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let remindersCardViewController = RemindersCardViewController()
 
     // MARK: - Setting Views
     private func setupViews() {
         view.backgroundColor = .BackgroundColor
         title = Localizer.getLocalizableString(of: .SCHEDULE)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: remindersCellId)
         let navigationBarTitleColor: [NSAttributedString.Key: UIColor] = [.foregroundColor: .PrimaryTextColor]
         navigationController?.navigationBar.titleTextAttributes = navigationBarTitleColor
         navigationController?.navigationBar.largeTitleTextAttributes = navigationBarTitleColor
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.addSubview(currentTimeLabel)
-        addChild(remindersCardViewController)
-        view.addSubview(remindersCardViewController.view)
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        EventsHelper.reminders.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: remindersCellId, for: indexPath)
+        cell.textLabel?.text = EventsHelper.reminders[indexPath.row]
+        cell.textLabel?.font = .customFont(name: .sfProTextRegular, size: 17)
+        return cell
     }
 
     // MARK: - Setting Constraints
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            currentTimeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            currentTimeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            currentTimeLabel.widthAnchor.constraint(equalToConstant: 104),
-            currentTimeLabel.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        NSLayoutConstraint.activate([
-            remindersCardViewController.view.topAnchor.constraint(equalTo: currentTimeLabel.bottomAnchor, constant: 16),
-            remindersCardViewController.view.leftAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.leftAnchor,
-                constant: 16),
-            remindersCardViewController.view.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
     }
 
 }
