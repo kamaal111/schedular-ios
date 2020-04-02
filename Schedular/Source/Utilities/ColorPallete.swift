@@ -26,7 +26,7 @@ public extension UIColor {
     static let SecondaryTextColor = getColorFromTheme(color: .secondaryTextColor)
     static let TertiaryTextColor = getColorFromTheme(color: .tertiaryTextColor)
     static let QuaternaryTextColor = getColorFromTheme(color: .quaternaryTextColor)
-    static let AccentColor = UIColor.red
+    static let AccentColor: UIColor = .systemTeal
     static let CardColor = getColorFromTheme(color: .cardColor)
 }
 

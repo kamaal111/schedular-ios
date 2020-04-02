@@ -37,9 +37,7 @@ final class ScheduleViewController: UIViewController {
         return label
     }()
 
-    private lazy var remindersCard: UIView = {
-       RemindersCard()
-    }()
+    private let remindersCardViewController = RemindersCardViewController()
 
     // MARK: - Setting Views
     private func setupViews() {
@@ -50,7 +48,8 @@ final class ScheduleViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = navigationBarTitleColor
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(currentTimeLabel)
-        view.addSubview(remindersCard)
+        addChild(remindersCardViewController)
+        view.addSubview(remindersCardViewController.view)
     }
 
     // MARK: - Setting Constraints
@@ -62,9 +61,11 @@ final class ScheduleViewController: UIViewController {
             currentTimeLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
         NSLayoutConstraint.activate([
-            remindersCard.topAnchor.constraint(equalTo: currentTimeLabel.bottomAnchor, constant: 16),
-            remindersCard.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            remindersCard.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            remindersCardViewController.view.topAnchor.constraint(equalTo: currentTimeLabel.bottomAnchor, constant: 16),
+            remindersCardViewController.view.leftAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leftAnchor,
+                constant: 16),
+            remindersCardViewController.view.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
 

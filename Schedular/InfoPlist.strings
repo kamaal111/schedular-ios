@@ -6,4 +6,4 @@
   Copyright © 2020 Kamaal. All rights reserved.
 */
 
-NSRemindersUsageDescription = "CheckNext would like to retrieve your reminders";
+NSRemindersUsageDescription = "We would like to retrieve your reminders to display them in an nice manner";
