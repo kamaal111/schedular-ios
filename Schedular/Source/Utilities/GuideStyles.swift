@@ -155,7 +155,6 @@ public class RegularText: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        textColor = .PrimaryTextColor
     }
 
     required init?(coder: NSCoder) {

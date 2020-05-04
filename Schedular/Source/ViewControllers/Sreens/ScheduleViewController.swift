@@ -10,6 +10,8 @@ import UIKit
 
 final class ScheduleViewController: UITableViewController {
 
+    private var eventsModel = EventsModel()
+
     private let remindersCellId = "Reminders"
 
     // MARK: - Setting up view controller
@@ -31,32 +33,64 @@ final class ScheduleViewController: UITableViewController {
         setupConstraints()
     }
 
-    // MARK: - Components
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(remindersDidUpdate(_:)),
+            name: .didUpdateReminders,
+            object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: .didUpdateReminders, object: nil)
+    }
+
+    @objc func remindersDidUpdate(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 
     // MARK: - Setting Views
     private func setupViews() {
-        view.backgroundColor = .BackgroundColor
         title = Localizer.getLocalizableString(of: .SCHEDULE)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: remindersCellId)
-        let navigationBarTitleColor: [NSAttributedString.Key: UIColor] = [.foregroundColor: .PrimaryTextColor]
-        navigationController?.navigationBar.titleTextAttributes = navigationBarTitleColor
-        navigationController?.navigationBar.largeTitleTextAttributes = navigationBarTitleColor
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        EventsHelper.reminders.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: remindersCellId, for: indexPath)
-        cell.textLabel?.text = EventsHelper.reminders[indexPath.row]
-        cell.textLabel?.font = .customFont(name: .sfProTextRegular, size: 17)
-        return cell
     }
 
     // MARK: - Setting Constraints
     private func setupConstraints() {
     }
 
+}
+
+extension ScheduleViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        eventsModel.reminders.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: remindersCellId, for: indexPath)
+        let circle = CircleView(lineWidth: 4, lineColor: .AccentColor, spacingAwayFromView: 4)
+        cell.addSubview(circle)
+        circle.translatesAutoresizingMaskIntoConstraints = false
+        cell.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        cell.textLabel?.text = eventsModel.reminders[indexPath.row]
+        cell.textLabel?.font = .customFont(name: .sfProTextRegular, size: 17)
+        NSLayoutConstraint.activate([
+            circle.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 16),
+            circle.heightAnchor.constraint(equalToConstant: 40),
+            circle.widthAnchor.constraint(equalToConstant: 40),
+            circle.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
+        ])
+        cell.textLabel?.leftAnchor.constraint(equalTo: circle.rightAnchor, constant: 8).isActive = true
+        cell.textLabel?.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+        return cell
+    }
 }

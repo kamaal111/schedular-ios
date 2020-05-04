@@ -13,20 +13,12 @@ import UIKit
  */
 public enum ColorPallete: String {
     case backgroundColor = "BackgroundColor"
-    case primaryTextColor = "PrimaryTextColor"
-    case secondaryTextColor = "SecondaryTextColor"
-    case tertiaryTextColor = "TertiaryTextColor"
-    case quaternaryTextColor = "QuaternaryTextColor"
     case cardColor = "CardColor"
 }
 
 public extension UIColor {
     static let BackgroundColor = getColorFromTheme(color: .backgroundColor)
-    static let PrimaryTextColor = getColorFromTheme(color: .primaryTextColor)
-    static let SecondaryTextColor = getColorFromTheme(color: .secondaryTextColor)
-    static let TertiaryTextColor = getColorFromTheme(color: .tertiaryTextColor)
-    static let QuaternaryTextColor = getColorFromTheme(color: .quaternaryTextColor)
-    static let AccentColor: UIColor = .systemTeal
+    static let AccentColor: UIColor = .systemPink
     static let CardColor = getColorFromTheme(color: .cardColor)
 }
 

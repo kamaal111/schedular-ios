@@ -19,8 +19,12 @@ final public class CircleView: UIButton {
         super.init(frame: frame)
     }
 
-    public convenience init(lineWidth: CGFloat, lineColor: UIColor, spacingAwayFromView: Double) {
-        self.init(frame: .zero)
+    public convenience init(
+        lineWidth: CGFloat,
+        lineColor: UIColor,
+        spacingAwayFromView: Double,
+        frame: CGRect = .zero) {
+        self.init(frame: frame)
         self.lineWidth = lineWidth
         self.lineColor = lineColor
         self.spacingAwayFromView = spacingAwayFromView

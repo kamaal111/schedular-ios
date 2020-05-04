@@ -46,12 +46,11 @@ final public class RemindersRow: UIView {
             if self.hasFinishedTask {
                 self.circleView.fill = false
                 self.circleView.setNeedsDisplay()
-                self.remindersLabel.textColor = .PrimaryTextColor
                 self.hasFinishedTask = false
             } else {
                 self.circleView.fill = true
                 self.circleView.setNeedsDisplay()
-                self.remindersLabel.textColor = .TertiaryTextColor
+                self.remindersLabel.textColor = .tertiaryLabel
                 self.hasFinishedTask = true
             }
             sender.alpha = 1.0
