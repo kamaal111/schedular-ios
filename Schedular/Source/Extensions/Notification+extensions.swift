@@ -9,9 +9,7 @@
 import Foundation
 
 enum Notifications {
-    static let didUpdateReminders = "didUpdateReminders"
 }
 
 extension Notification.Name {
-    static let didUpdateReminders = Notification.Name(Notifications.didUpdateReminders)
 }

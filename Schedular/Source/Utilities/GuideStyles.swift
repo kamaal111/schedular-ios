@@ -6,175 +6,80 @@
 //  Copyright © 2020 Kamaal. All rights reserved.
 //
 
-import UIKit
+import KamaalUI
+import SwiftUI
 
-public class LargeTitle: RegularText {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProDisplayBold, size: 34)
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
+extension KText {
+    func gLargeTitle() -> some View { modifier(LargeTitle()) }
+    func gTitle1() -> some View { modifier(Title1()) }
+    func gTitle2() -> some View { modifier(Title2()) }
+    func gTitle3() -> some View { modifier(Title3()) }
+    func gHeadline() -> some View { modifier(Headline()) }
+    func gBodyText() -> some View { modifier(BodyText()) }
+    func gActionText() -> some View { modifier(ActionText()) }
+    func gFootnote() -> some View { modifier(Footnote()) }
 }
 
-public class Title1: RegularText {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProDisplayBold, size: 28)
+private struct LargeTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProDisplayBold, size: 34))
+            .foregroundColor(.primary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class Title2: RegularText {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProDisplayBold, size: 22)
+private struct Title1: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProDisplayBold, size: 28))
+            .foregroundColor(.primary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class Title3: RegularText {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProDisplayBold, size: 20)
+private struct Title2: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProDisplayBold, size: 22))
+            .foregroundColor(.primary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class Headline: RegularText {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextSemibold, size: 17)
+private struct Title3: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProDisplayBold, size: 20))
+            .foregroundColor(.primary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class BodyText: RegularText {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextRegular, size: 17)
+private struct Headline: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProTextSemibold, size: 17))
+            .foregroundColor(.secondary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class Callout: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextRegular, size: 16)
+private struct BodyText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProTextRegular, size: 17))
+            .foregroundColor(.primary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class Subhead: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextRegular, size: 15)
+private struct ActionText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProTextRegular, size: 17))
+            .foregroundColor(.accentColor)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }
 
-public class Footnote: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextRegular, size: 13)
+private struct Footnote: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.customFont(name: .sfProTextRegular, size: 13))
+            .foregroundColor(.secondary)
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-}
-
-public class Caption1: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextRegular, size: 12)
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-}
-
-public class Caption2: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = .customFont(name: .sfProTextRegular, size: 11)
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-}
-
-public class RegularText: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-}
-
-public class ActionText: UILabel {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        /// - ToDo: Define this globally
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        let windowTintColor = sceneDelegate?.window?.tintColor
-        textColor = windowTintColor
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
 }

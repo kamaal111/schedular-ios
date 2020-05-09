@@ -6,8 +6,7 @@
 //  Copyright © 2020 Kamaal. All rights reserved.
 //
 
-import UIKit
-
+import SwiftUI
 
 extension UIFont {
     static func customFont(name: CustomFonts, size: CGFloat) -> UIFont {
@@ -16,6 +15,16 @@ extension UIFont {
 
     static func customFontItalic(name: CustomFontsItalic, size: CGFloat) -> UIFont {
         UIFont(name: name.rawValue, size: size) ?? .italicSystemFont(ofSize: size)
+    }
+}
+
+extension Font {
+    static func customFont(name: CustomFonts, size: CGFloat) -> Font {
+        Font.custom(name.rawValue, size: size)
+    }
+
+    static func customFontItalic(name: CustomFontsItalic, size: CGFloat) -> Font {
+        Font.custom(name.rawValue, size: size)
     }
 }
 
