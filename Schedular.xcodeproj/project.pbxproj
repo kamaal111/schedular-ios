@@ -49,7 +49,7 @@
 		607DBF97242FEE6D00114DB7 /* SF-Pro-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 607DBF85242FEE6D00114DB7 /* SF-Pro-Text-MediumItalic.otf */; };
 		607DBF9B242FF0F400114DB7 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607DBF9A242FF0F400114DB7 /* CustomFonts.swift */; };
 		607DBF9D242FF37900114DB7 /* GuideStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607DBF9C242FF37900114DB7 /* GuideStyles.swift */; };
-		60A0A9562431156200DCE4D7 /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A0A9552431156200DCE4D7 /* EventsModel.swift */; };
+		60A0A9562431156200DCE4D7 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A0A9552431156200DCE4D7 /* EventsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +119,7 @@
 		607DBF9A242FF0F400114DB7 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		607DBF9C242FF37900114DB7 /* GuideStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideStyles.swift; sourceTree = "<group>"; };
 		608C8F37242E93C200A7267D /* CheckNext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckNext.entitlements; sourceTree = "<group>"; };
-		60A0A9552431156200DCE4D7 /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
+		60A0A9552431156200DCE4D7 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		60C755482427E22000DFA697 /* HomeScreen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeScreen.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
@@ -161,7 +161,7 @@
 		600EADDA2460B66B004808AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60A0A9552431156200DCE4D7 /* EventsModel.swift */,
+				60A0A9552431156200DCE4D7 /* EventsViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -490,7 +490,7 @@
 			files = (
 				605859BE24294F2B00F2799D /* ColorPallete.swift in Sources */,
 				6008C3892465D7FD009E6CBF /* ContentView.swift in Sources */,
-				60A0A9562431156200DCE4D7 /* EventsModel.swift in Sources */,
+				60A0A9562431156200DCE4D7 /* EventsViewModel.swift in Sources */,
 				6008C38B2465DBAC009E6CBF /* ScheduleContentView.swift in Sources */,
 				604F07952427C3EA0033DE61 /* AppDelegate.swift in Sources */,
 				607DBF9D242FF37900114DB7 /* GuideStyles.swift in Sources */,
