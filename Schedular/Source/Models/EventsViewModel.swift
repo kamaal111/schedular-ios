@@ -9,7 +9,7 @@
 import EventKit
 
 class EventsViewModel: ObservableObject {
-    @Published var remindersItems = [EKReminder]()
+    @Published var remindersItems = [Reminder]()
     @Published var recentlyCompletedRemindersItems = [String]()
 
     private let eventStore = EKEventStore()
@@ -19,16 +19,12 @@ class EventsViewModel: ObservableObject {
         self.kowalskiAnalysis = kowalskiAnalysis
     }
 
-    func remindersTitle(of reminder: EKReminder) -> String {
-        "\(reminder.calendar.title): \(reminder.title ?? "")"
+    func remindersTitle(of reminder: Remindable) -> String {
+        "\(reminder.listTitle): \(reminder.title)"
     }
 
-    func setReminders(with reminders: [EKReminder]) {
-        remindersItems = reminders
-    }
-
-    func completeRemindersItem(of reminder: EKReminder) {
-        let remindersId = reminder.calendarItemIdentifier
+    func completeRemindersItem(of reminder: Remindable) {
+        let remindersId = reminder.id
         if recentlyCompletedRemindersItems.contains(remindersId) {
             if let indexOfReminderId = recentlyCompletedRemindersItems.firstIndex(of: remindersId) {
                 recentlyCompletedRemindersItems.remove(at: indexOfReminderId)
@@ -38,30 +34,19 @@ class EventsViewModel: ObservableObject {
         }
     }
 
-    func reminderIsCompleted(_ reminder: EKReminder) -> Bool {
-        if recentlyCompletedRemindersItems.contains(reminder.calendarItemIdentifier) {
+    func reminderIsCompleted(_ reminder: Remindable) -> Bool {
+        if recentlyCompletedRemindersItems.contains(reminder.id) {
             return true
         } else {
             return false
         }
     }
 
-    private func remindersPermissionGranted() {
-        /// - ToDo: Learn to predicate
-        let predicate = eventStore.predicateForReminders(in: nil)
-        eventStore.fetchReminders(matching: predicate) { reminders in
-            self.debugPrint("Fetching reminders")
-            guard let reminders = reminders else { return }
-            let filteredReminders = reminders.filter {
-                $0.completionDate == nil && (($0.dueDateComponents?.calendar?.isDateInToday(Date())) != nil)
-            }
-            DispatchQueue.main.async {
-                self.setReminders(with: filteredReminders)
-            }
-        }
-    }
-
     func checkRemindersStatusAndFetch() {
+        if let cachedReminders = LocalStorageHelper.getObject(ofType: Data.self, from: .cacheReminders),
+            let decodedCachedReminder = try? PropertyListDecoder().decode([Reminder].self, from: cachedReminders) {
+            remindersItems = decodedCachedReminder
+        }
         let status = EKEventStore.authorizationStatus(for: .reminder)
         switch status {
         case .authorized:
@@ -75,6 +60,29 @@ class EventsViewModel: ObservableObject {
             debugPrint("restricted")
         @unknown default:
             debugPrint("unknown")
+        }
+    }
+
+    private func remindersPermissionGranted() {
+        /// - ToDo: Learn to predicate
+        let predicate = eventStore.predicateForReminders(in: nil)
+        eventStore.fetchReminders(matching: predicate) { reminders in
+            self.debugPrint("Fetching reminders")
+            guard let reminders = reminders else { return }
+            let filteredReminders = reminders.filter {
+                $0.completionDate == nil && (($0.dueDateComponents?.calendar?.isDateInToday(Date())) != nil)
+            }.map {
+                Reminder(id: $0.calendarItemIdentifier, title: $0.title, listTitle: $0.calendar.title)
+            }
+            DispatchQueue.main.async {
+                self.remindersItems = filteredReminders
+            }
+            do {
+                let encodedReminders = try PropertyListEncoder().encode(filteredReminders)
+                LocalStorageHelper.save(this: encodedReminders, from: .cacheReminders)
+            } catch {
+                self.debugPrint(error)
+            }
         }
     }
 
@@ -93,9 +101,9 @@ class EventsViewModel: ObservableObject {
         }
     }
 
-    private func debugPrint(_ message: String) {
+    private func debugPrint(_ message: Any) {
         if kowalskiAnalysis {
-            print(message)
+            print("\(message)")
         }
     }
 }

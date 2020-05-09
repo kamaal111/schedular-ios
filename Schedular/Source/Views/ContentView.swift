@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import KamaalUI
 
 struct ContentView: View {
     @State private var tabSelection = 0
@@ -17,23 +18,23 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "archivebox")
-                Text(Localizer.getLocalizableString(of: .SCHEDULE))
+                KText(localizedText: .SCHEDULE)
             }
             .tag(0)
             NavigationView {
-                Text("dkjnkn")
+                KText("dkjnkn")
             }
             .tabItem {
                 Image(systemName: "calendar")
-                Text("Calendar")
+                KText("Calendar")
             }
             .tag(1)
             NavigationView {
-                Text("dkjnkn")
+                KText("dkjnkn")
             }
             .tabItem {
                 Image(systemName: "slider.horizontal.3")
-                Text("Settings")
+                KText("Settings")
             }
             .tag(2)
         }

@@ -17,7 +17,7 @@ struct ScheduleContentView: View {
     var body: some View {
         Form {
             Section(header: KText("Remdinders").gHeadline()) {
-                ForEach(eventsVM.remindersItems, id: \.self) { reminder in
+                ForEach(eventsVM.remindersItems) { reminder in
                     KButton(action: { self.eventsVM.completeRemindersItem(of: reminder) }) {
                         HStack {
                              KRadioCheckBox(
