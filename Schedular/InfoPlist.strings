@@ -7,3 +7,4 @@
 */
 
 NSRemindersUsageDescription = "We would like to retrieve your reminders to display them in an nice manner";
+NSCalendarsUsageDescription = "We would like to retrieve your calendar events to display them in an nice manner";
