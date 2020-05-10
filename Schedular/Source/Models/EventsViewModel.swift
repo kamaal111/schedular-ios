@@ -12,6 +12,7 @@ class EventsViewModel: ObservableObject {
     @Published var remindersItems = [Reminder]()
     @Published var recentlyCompletedRemindersItems = [String]()
     @Published var calendarEventsItems = [CalendarEvent]()
+    @Published var paginatedCalendarEvents = [CalendarEvent]()
 
     private let eventStore = EKEventStore()
     private let kowalskiAnalysis: Bool
@@ -58,6 +59,13 @@ class EventsViewModel: ObservableObject {
     func checkEventsStatusAndFetch() {
         checkCalendarEventsStatusAndFetch()
         checkRemindersStatusAndFetch()
+    }
+
+    func dateFormatter(date: Date?) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yy HH:mm"
+        guard let date = date else { return "" }
+        return formatter.string(from: date)
     }
 
     private func checkRemindersStatusAndFetch() {
@@ -135,18 +143,26 @@ class EventsViewModel: ObservableObject {
             if let aPredicate = predicate {
                 events = self.eventStore.events(matching: aPredicate)
             }
-            var eventsToReturn = [CalendarEvent]()
-            events?.forEach { event in
-                let calendarEvent = CalendarEvent(
+            let calendarEvents = events?.map { event in
+                return CalendarEvent(
                     id: event.eventIdentifier,
                     title: event.title,
                     endDate: event.endDate,
                     startDate: event.startDate,
                     isAllDay: event.isAllDay)
-                eventsToReturn.append(calendarEvent)
+            }.sorted { (a, b) -> Bool in
+                return a.startDate?.compare(b.startDate ?? Date()) == .orderedAscending
             }
+            guard let eventsToReturn = calendarEvents else { return }
             DispatchQueue.main.async {
                 self.calendarEventsItems = eventsToReturn
+                self.paginatedCalendarEvents = eventsToReturn
+            }
+            do {
+                let encodedEvents = try PropertyListEncoder().encode(eventsToReturn)
+                LocalStorageHelper.save(this: encodedEvents, from: .cacheCalendarEvents)
+            } catch {
+                self.debugPrint(error)
             }
         }
     }

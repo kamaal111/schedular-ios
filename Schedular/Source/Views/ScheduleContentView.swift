@@ -27,18 +27,24 @@ struct ScheduleContentView: View {
 //                                 borderWidth: 4,
 //                                 spacing: 8)
                              KText(self.eventsVM.remindersTitle(of: reminder))
-                                 .gBodyText()
-                                 .padding()
+                                .gBodyText()
+                                .padding(.horizontal, 4)
                          }
 //                    }
                 }
             }
             Section(header: KText("Calendar Events").gHeadline()) {
-                ForEach(eventsVM.calendarEventsItems) { event in
+                ForEach(eventsVM.paginatedCalendarEvents) { event in
                     HStack {
+                        VStack {
+                            KText(self.eventsVM.dateFormatter(date: event.startDate))
+                                .gBodyText()
+                            KText(self.eventsVM.dateFormatter(date: event.endDate))
+                                .gBodyText()
+                        }
                         KText(event.title)
-                             .gBodyText()
-                             .padding()
+                            .gBodyText()
+                            .padding(.horizontal, 4)
                      }
                 }
             }
