@@ -17,8 +17,16 @@ class EventsViewModel: ObservableObject {
     private let kowalskiAnalysis: Bool
 
     init(kowalskiAnalysis: Bool = false) {
+        if let cachedCalendarEvents = LocalStorageHelper.getObject(ofType: Data.self, from: .cacheCalendarEvents),
+            let decodedCachedCalendarEvents = try? PropertyListDecoder().decode(
+                [CalendarEvent].self,
+                from: cachedCalendarEvents) {
+            calendarEventsItems = decodedCachedCalendarEvents
+        }
         if let cachedReminders = LocalStorageHelper.getObject(ofType: Data.self, from: .cacheReminders),
-            let decodedCachedReminder = try? PropertyListDecoder().decode([Reminder].self, from: cachedReminders) {
+            let decodedCachedReminder = try? PropertyListDecoder().decode(
+                [Reminder].self,
+                from: cachedReminders) {
             remindersItems = decodedCachedReminder
         }
         self.kowalskiAnalysis = kowalskiAnalysis

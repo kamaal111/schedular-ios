@@ -45,4 +45,5 @@ struct LocalStorageHelper {
 /// This is a enum of the possible local storage keys
 enum LocalStorageKeys: String {
     case cacheReminders
+    case cacheCalendarEvents
 }

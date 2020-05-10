@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CalendarEvent: CalendarEventable, Identifiable, Hashable {
+struct CalendarEvent: CalendarEventable, Identifiable, Hashable, Codable {
     var id: String
     var title: String
     var endDate: Date?
