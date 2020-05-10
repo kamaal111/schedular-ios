@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Reminder: Remindable, Identifiable, Encodable, Decodable, Hashable {
+struct Reminder: Remindable, Identifiable, Codable, Hashable {
     var id: String
     var title: String
     var listTitle: String

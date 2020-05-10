@@ -18,19 +18,28 @@ struct ScheduleContentView: View {
         Form {
             Section(header: KText("Remdinders").gHeadline()) {
                 ForEach(eventsVM.remindersItems) { reminder in
-                    KButton(action: { self.eventsVM.completeRemindersItem(of: reminder) }) {
+//                    KButton(action: { self.eventsVM.completeRemindersItem(of: reminder) }) {
                         HStack {
-                             KRadioCheckBox(
-                                 checked: self.eventsVM.reminderIsCompleted(reminder),
-                                 color: .accentColor,
-                                 size: 24,
-                                 borderWidth: 4,
-                                 spacing: 8)
+//                             KRadioCheckBox(
+//                                 checked: self.eventsVM.reminderIsCompleted(reminder),
+//                                 color: .accentColor,
+//                                 size: 24,
+//                                 borderWidth: 4,
+//                                 spacing: 8)
                              KText(self.eventsVM.remindersTitle(of: reminder))
                                  .gBodyText()
                                  .padding()
                          }
-                    }
+//                    }
+                }
+            }
+            Section(header: KText("Calendar Events").gHeadline()) {
+                ForEach(eventsVM.calendarEventsItems) { event in
+                    HStack {
+                        KText(event.title)
+                             .gBodyText()
+                             .padding()
+                     }
                 }
             }
         }
@@ -39,6 +48,6 @@ struct ScheduleContentView: View {
     }
 
     private func onScheduleContentViewAppear() {
-        eventsVM.checkRemindersStatusAndFetch()
+        eventsVM.checkEventsStatusAndFetch()
     }
 }
